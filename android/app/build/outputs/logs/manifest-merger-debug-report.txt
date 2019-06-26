@@ -1,20 +1,20 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
 MERGED from [com.facebook.fresco:animated-gif:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\animated-gif-1.10.0.aar\6ca0d5bcf7caa00602c65c4bf48d7553\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:animated-webp:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\animated-webp-1.10.0.aar\84492aeab49aba899f8525851afaf2de\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:webpsupport:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\webpsupport-1.10.0.aar\7a0d309d90d2bb00a514e6a0f550630e\AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-14:12
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.1.aar\bd4713b0ea41e2dff6470e5bf11b8abe\AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-app-settings] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-app-settings\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-14:12
-MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-23:12
-MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\2b254e5c44ef6f34ed77053fdcb9d1bf\AndroidManifest.xml:2:1-15:12
+MERGED from [:react-native-app-settings] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-app-settings\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-14:12
+MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-23:12
+MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\3cdadf7f4622b06c4344a6ba65559a6d\AndroidManifest.xml:2:1-15:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\18cf7f095cb4f9d0830d6eb96c5b9735\AndroidManifest.xml:17:1-22:12
-MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-12:12
+MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:2:1-12:12
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:17:1-32:12
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\d7aecba2405436c03bb2b9fb482511d5\AndroidManifest.xml:17:1-29:12
 MERGED from [com.facebook.fresco:animated-base:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\animated-base-1.10.0.aar\120dcd5ef1623d6ac3966b7b19df6ffc\AndroidManifest.xml:2:1-9:12
@@ -58,75 +58,75 @@ MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Acer\.gradle\caches\trans
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\19ebbca7b5f56267c08f13093e3dacfe\AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r174650] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\android-jsc-r174650.aar\90b0f933162d3ff4d24450b214a41ab2\AndroidManifest.xml:1:1-3:12
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\android-maps-utils-0.5.aar\48d33ab08b51252cd32b950beb8bb6cb\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
 	package
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:2:3-31
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:2:3-31
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:11-69
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:4:5-67
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
-MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
-MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
+MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
+MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:9:5-67
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:24:5-67
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:4:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\2b254e5c44ef6f34ed77053fdcb9d1bf\AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\2b254e5c44ef6f34ed77053fdcb9d1bf\AndroidManifest.xml:11:5-78
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\3cdadf7f4622b06c4344a6ba65559a6d\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\3cdadf7f4622b06c4344a6ba65559a6d\AndroidManifest.xml:11:5-78
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:5:22-75
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:6:5-78
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:5-79
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:5-79
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:6:5-78
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:5-79
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:5-79
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:6:22-76
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:7:5-81
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-81
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-81
-MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-81
-MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-81
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:7:5-81
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-81
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-81
+MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-81
+MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-81
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:7:22-78
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:7:22-78
 uses-permission#android.permission.READ_EXTERNAL_STORAGE
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:8:6-81
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:8:6-81
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:8:23-78
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:8:23-78
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:9:3-79
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:9:3-79
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:9:20-76
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:9:20-76
 uses-permission#android.permission.CAMERA
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:10:8-68
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:10:8-68
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:10:25-65
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:10:25-65
 application
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:12:5-35:19
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:12:5-35:19
 MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.1.aar\bd4713b0ea41e2dff6470e5bf11b8abe\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.1.aar\bd4713b0ea41e2dff6470e5bf11b8abe\AndroidManifest.xml:7:5-20
-MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-12:19
-MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-12:19
-MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-21:19
-MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-21:19
-MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\2b254e5c44ef6f34ed77053fdcb9d1bf\AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\2b254e5c44ef6f34ed77053fdcb9d1bf\AndroidManifest.xml:13:5-20
+MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-12:19
+MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-12:19
+MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:11:5-21:19
+MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\3cdadf7f4622b06c4344a6ba65559a6d\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\3cdadf7f4622b06c4344a6ba65559a6d\AndroidManifest.xml:13:5-20
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:30:5-20
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\d7aecba2405436c03bb2b9fb482511d5\AndroidManifest.xml:22:5-27:19
@@ -154,79 +154,79 @@ MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Acer\.grad
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\86eb29465e05f6e416529b78872e7e26\AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:14:7-39
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:14:7-39
 	android:roundIcon
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:16:7-46
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:16:7-46
 	android:icon
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:15:7-41
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:15:7-41
 	android:allowBackup
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:17:7-34
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:17:7-34
 	android:theme
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:19:7-38
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:19:7-38
 	android:usesCleartextTraffic
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:18:7-42
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:18:7-42
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:13:7-38
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:13:7-38
 activity#com.thesisappreact.MainActivity
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:20:7-30:18
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:20:7-30:18
 	android:label
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:22:9-41
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:22:9-41
 	android:windowSoftInputMode
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:24:9-48
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:24:9-48
 	android:configChanges
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:23:9-79
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:23:9-79
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:21:9-37
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:21:9-37
 intent-filter#action:name:android.intent.action.DOWNLOAD_COMPLETE+action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:25:9-29:25
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:25:9-29:25
 action#android.intent.action.MAIN
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:26:13-65
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:26:13-65
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:26:21-62
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:26:21-62
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:27:13-73
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:27:13-73
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:27:23-70
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:27:23-70
 action#android.intent.action.DOWNLOAD_COMPLETE
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:28:13-77
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:28:13-77
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:28:21-75
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:28:21-75
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:31:7-84
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:31:7-84
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:31:17-81
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:31:17-81
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:32:6-34:62
+ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:32:6-34:62
 	android:value
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:34:5-60
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:34:5-60
 	android:name
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:33:5-50
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:33:5-50
 uses-sdk
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
 MERGED from [com.facebook.fresco:animated-gif:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\animated-gif-1.10.0.aar\6ca0d5bcf7caa00602c65c4bf48d7553\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:animated-gif:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\animated-gif-1.10.0.aar\6ca0d5bcf7caa00602c65c4bf48d7553\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:animated-webp:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\animated-webp-1.10.0.aar\84492aeab49aba899f8525851afaf2de\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:animated-webp:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\animated-webp-1.10.0.aar\84492aeab49aba899f8525851afaf2de\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:webpsupport:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\webpsupport-1.10.0.aar\7a0d309d90d2bb00a514e6a0f550630e\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:webpsupport:1.10.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\webpsupport-1.10.0.aar\7a0d309d90d2bb00a514e6a0f550630e\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.1.aar\bd4713b0ea41e2dff6470e5bf11b8abe\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-location:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-location-15.0.1.aar\bd4713b0ea41e2dff6470e5bf11b8abe\AndroidManifest.xml:5:5-44
-MERGED from [:react-native-app-settings] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-app-settings\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-app-settings] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-app-settings\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\2b254e5c44ef6f34ed77053fdcb9d1bf\AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\2b254e5c44ef6f34ed77053fdcb9d1bf\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-app-settings] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-app-settings\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-app-settings] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-app-settings\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-fetch-blob] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-fetch-blob\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\3cdadf7f4622b06c4344a6ba65559a6d\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.58.6] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\react-native-0.58.6.aar\3cdadf7f4622b06c4344a6ba65559a6d\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\18cf7f095cb4f9d0830d6eb96c5b9735\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\18cf7f095cb4f9d0830d6eb96c5b9735\AndroidManifest.xml:20:5-44
-MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-maps\lib\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-base-15.0.1.aar\d7aecba2405436c03bb2b9fb482511d5\AndroidManifest.xml:20:5-44
@@ -311,40 +311,40 @@ MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Acer\.gradle\cach
 MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\19ebbca7b5f56267c08f13093e3dacfe\AndroidManifest.xml:20:5-44
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\android-maps-utils-0.5.aar\48d33ab08b51252cd32b950beb8bb6cb\AndroidManifest.xml:5:5-43
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\android-maps-utils-0.5.aar\48d33ab08b51252cd32b950beb8bb6cb\AndroidManifest.xml:5:5-43
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\f9e601dba425014e7dadcbfa24c68888\AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-79
+ADDED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:5-79
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:23:5-79
 MERGED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:23:5-79
 	android:name
-		ADDED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:22-76
+		ADDED from [:react-native-geolocation-service] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-geolocation-service\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:10:22-76
 provider#com.imagepicker.FileProvider
-ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:9-20:20
+ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:12:9-20:20
 	android:grantUriPermissions
-		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:16:13-47
+		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:16:13-47
 	android:authorities
-		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:14:13-60
+		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:14:13-60
 	android:exported
-		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:15:13-37
+		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:15:13-37
 	android:name
-		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:13:13-56
+		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:13:13-56
 meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:17:13-19:58
+ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:17:13-19:58
 	android:resource
-		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:19:17-55
+		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:19:17-55
 	android:name
-		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:18:17-67
+		ADDED from [:react-native-image-picker] C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\node_modules\react-native-image-picker\android\build\intermediates\merged_manifests\debug\processDebugManifest\merged\AndroidManifest.xml:18:17-67
 uses-feature#0x00020000
 ADDED from [com.google.android.gms:play-services-maps:15.0.1] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\play-services-maps-15.0.1.aar\71f6d4b8a783e3007aaf2141316eb576\AndroidManifest.xml:26:5-28:35
 	android:glEsVersion
@@ -376,4 +376,4 @@ MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Acer\.gra
 	android:name
 		ADDED from [com.android.support:support-v4:26.1.0] C:\Users\Acer\.gradle\caches\transforms-1\files-1.1\support-v4-26.1.0.aar\f9e601dba425014e7dadcbfa24c68888\AndroidManifest.xml:27:13-51
 uses-permission#android.permission.READ_PHONE_STATE
-IMPLIED from C:\Users\Acer\Desktop\thesismobile\thesisupdated\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+IMPLIED from C:\Users\Acer\Desktop\thesismobile\thesisupdated - Copy\ThesisCamera-Patrick\android\app\src\main\AndroidManifest.xml:1:1-37:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4

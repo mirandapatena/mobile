@@ -350,7 +350,7 @@ export default class RegularUser extends Component {
 
 
  }
- else if (reportedBy === userId && isSettled === true && isShown === false) {
+ else if (reportedBy === userId && isSettled === true && isShown === true) {
  that.incidentSettled();
 
  }
@@ -372,18 +372,19 @@ export default class RegularUser extends Component {
     incidentId: '',
     });
 
-    this.setState({
-       isSettled: true,
-       markerCoords: null,
-    });
+    this.setState({ 
+       isSettled: false, 
+       isIncidentReady: false, 
+       incidentLocation:'',
+       pinUpdate:false, 
+       incidentID:'', 
+       responderLat: null, 
+       volunteerLat: null,
+       markerCoords: null}); 
 
  }
 
  incidentSettled = () => {
-
-
- this.setState({ isSettled: true, isIncidentReady: false, incidentLocation:'',pinUpdate:false, incidentID:'', responderLat: null, volunteerLat: null});
- this.setState({ markerCoords: null });
 
  Alert.alert(
  "INCIDENT HAS BEEN RESPONDED!! ",
@@ -435,6 +436,8 @@ export default class RegularUser extends Component {
  // var destinationPlaceId = data2.destinationPlaceId;
  if (responderRespondingID) {
  if (hasResponderAlerted===false&&isRespondingResponder === true && isRespondingResponderShown ===false) {
+   if(!this.responderAccepted){ 
+      this.responderAccepted = true;
    Alert.alert(
    "A Responder has accepted an incident "
    , `Responder is on the way!`,
@@ -444,14 +447,14 @@ export default class RegularUser extends Component {
    },
    ],
    { cancelable: false }
-   );
+   );}
+   else{
+      this.responderAccepted = false;
+   }
  }
-   
- console.log("responder responding", responderRespondingID);
- 
- that.responderCoordinates(responderRespondingID);
-
- if (timeResponderArrived !== '' && isArrivedResponder === true && isArrivedResponderShown === false){
+  if (timeResponderArrived !== '' && isArrivedResponder === true && isArrivedResponderShown === false){
+   if(!this.responderArrived){ 
+      this.responderArrived = true;
    Alert.alert(
       "A Responder has arrived at the incident "
       , ``,
@@ -462,8 +465,13 @@ export default class RegularUser extends Component {
       ],
       { cancelable: false }
       );
+   }else{
+      this.responderArrived = false;
+   }
  }
 
+
+ that.responderCoordinates(responderRespondingID);
  }
  else {
  console.log("responder NOT responding", responderRespondingID);
@@ -509,7 +517,9 @@ export default class RegularUser extends Component {
 
  if (volunteerRespondingID) {
    if (hasVolunteerAlerted=== false && isRespondingVolunteer === true && isRespondingVolunteerShown === false) {
-   Alert.alert(
+   if(!that.volunteerAccepted){
+      that.volunteerAccepted=true;
+      Alert.alert(
    "A volunteer has accepted the incident. "
    , `Volunteer is on the way!`,
    [
@@ -517,10 +527,15 @@ export default class RegularUser extends Component {
    ],
    { cancelable: false }
    );
-
+   }else {
+      that.volunteerAccepted=false;
+   }
    }
 
-   else if (isArrivedVolunteer === true && timeVolunteerArrived !== '' && isArrivedVolunteerShown === false){
+    if (isArrivedVolunteer === true && timeVolunteerArrived !== '' && isArrivedVolunteerShown === false){
+      if(!that.volunteerReceived){
+         that.volunteerReceived=true;
+      
       Alert.alert(
          "A volunteer has arrived at the incident "
          , ``,
@@ -529,6 +544,9 @@ export default class RegularUser extends Component {
          ],
          { cancelable: false }
          );
+      }else{
+         that.volunteerReceived=false;
+      }
    }
 
  console.log("volunteer responding", volunteerRespondingID);
@@ -699,6 +717,10 @@ export default class RegularUser extends Component {
    //uid of responder and volunteer
    responderResponding: '',
    volunteerResponding: '',
+
+   //forWeb
+   isDisplayCard:true,
+   isDisplayCardShown:false,
 
    //time of responders & volunteers
    timeResponderArrived: '',

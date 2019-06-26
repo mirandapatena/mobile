@@ -450,7 +450,7 @@ export default class Responder extends Component {
         let userId = this.state.userId;
 
         console.log("incidentID on arrived Location", incidentID, userId);
-        app.database().ref(`incidents/${incidentID}/additionalDispatched/${userId}`).update({
+        app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
             timeArrived: date,
         });
     }
@@ -633,7 +633,8 @@ export default class Responder extends Component {
                     //RESPONDER WHO SENT REPORT SETTLES REPORT
                     else if (isSettled === true && isShown ===false) {
                         console.log("ARGUMENT 6");
-                        
+                       if(!this.incidentSettled){ 
+                           this.incidentSettled = true;
                         Alert.alert(
                             "INCIDENT HAS BEEN SETTLED43",
                             `Incident Type: ${incidentType}
@@ -646,6 +647,9 @@ export default class Responder extends Component {
                             { cancelable: false }
                         );
                         this.setState({destinationPlaceId:'',pinUpdate:false})
+                        }else{
+                            this.incidentSettled=false;
+                        }
                     }
                     else if (incidentID !== "" && responderResponding !== userId && isRequestingResponders === true && this.state.requestResponders === true && isSettled === false) {
                         //condition requested responders
@@ -781,21 +785,21 @@ export default class Responder extends Component {
     }
 
     sendIncidentFeedback = () => {
-        var incidentDetails;
-        var incidentType;
+        var incidentDetails = '';
+        var incidentType = '';
 
-        var incidentLocation, incidentNote, 
-        timeReceived, 
-        image_uri, reporterUID, reporterName, 
-        coordinates, multipleResponders, multipleVolunteers, requestResponders, 
-        requestVolunteers, responderResponding, volunteerResponding,
-        timeResponderArrived,
-        timeResponderReceived,
-        timeVolunteerReceived,
-        timeVolunteerArrived,
-        isRedundantReport,
-        originalResponderName,
-            originalVolunteerName, timeSettled;
+        var incidentLocation= '', incidentNote= '', 
+        timeReceived= '', 
+        image_uri= '', reporterUID= '', reporterName= '', 
+        coordinates= '', multipleResponders= '', multipleVolunteers= '', requestResponders= '', 
+        requestVolunteers= '', responderResponding= '', volunteerResponding= '',
+        timeResponderArrived= '',
+        timeResponderReceived= '',
+        timeVolunteerReceived= '',
+        timeVolunteerArrived= '',
+        isRedundantReport= '',
+        originalResponderName= '',
+            originalVolunteerName= '', timeSettled= '';
 
             app.database().ref(`incidents/${this.state.incidentId}`).once('value', (snapshot) => {
                 incidentDetails = snapshot.val();
@@ -824,44 +828,43 @@ export default class Responder extends Component {
                 timeVolunteerReceived = incidentDetails.timeVolunteerReceived;
                 timeResponderReceived= incidentDetails.timeResponderReceived;
                 timeSettled = incidentDetails.timeSettled;
-            })
+                timeReceived = incidentDetails.timeReceived;
 
-        app.database().ref(`/Archives/${this.state.incidentId}`).update({
-            feedbackByResponder:this.state.firstName+' '+this.state.lastName,
-            feedbackLocation: this.state.incidentFeedbackLocation, //Detailed location FROM RESPONDER
-            feedbackReport:this.state.incidentFeedback, //Feedback form RESPONDER
-
-            incidentAdditionalResponders:requestResponders,
-            incidentAdditionalVolunteers: requestVolunteers,
-            incidentCoordinates: coordinates,
-            incidentLocation: incidentLocation,
-            incidentType: incidentType,
-            incidentNote: incidentNote,
-            incidentImage: image_uri,
-            incidentTimeReceived: timeReceived,
-            incidentTimeSettled:timeSettled,
-
-            incidentIsRedundant: isRedundantReport,
-
-            incidentOriginalResponder: originalResponderName,
-            incidentOriginalResponderUID: responderResponding,
-            incidentOriginalVolunteer: originalVolunteerName,
-            incidentOriginalVolunteerUID: volunteerResponding,
-            incidentReportedBy: reporterName,
-            incidentReporterUID: reporterUID,
-            incidentTimeResponderReceived: timeResponderReceived,
-            incidentTimeResponderArrived: timeResponderArrived,
-            incidentTimeVolunteerReceived: timeVolunteerReceived,
-            incidentTimeVolunteerArrived: timeVolunteerArrived,
-            incidentMultipleVolunteers: multipleVolunteers,
-            incidentMultipleResponders:multipleResponders
-        });
-
+                app.database().ref(`/Archives/${this.state.incidentId}`).set({
+                    feedbackByResponder:this.state.firstName+' '+this.state.lastName,
+                    feedbackLocation: this.state.incidentFeedbackLocation, //Detailed location FROM RESPONDER
+                    feedbackReport:this.state.incidentFeedback, //Feedback form RESPONDER
         
-
+                    incidentAdditionalResponders:requestResponders,
+                    incidentAdditionalVolunteers: requestVolunteers,
+                    incidentCoordinates: coordinates,
+                    incidentLocation: incidentLocation,
+                    incidentType: incidentType,
+                    incidentNote: incidentNote,
+                    incidentImage: image_uri,
+                    incidentTimeReceived: timeReceived,
+                    feedbackTimeSettled:timeSettled,
+        
+                    incidentIsRedundant: isRedundantReport,
+        
+                    incidentOriginalResponder: originalResponderName,
+                    incidentOriginalResponderUID: responderResponding,
+                    incidentOriginalVolunteer: originalVolunteerName,
+                    incidentOriginalVolunteerUID: volunteerResponding,
+                    incidentReportedBy: reporterName,
+                    incidentReporterUID: reporterUID,
+                    incidentTimeResponderReceived: timeResponderReceived,
+                    incidentTimeResponderArrived: timeResponderArrived,
+                    incidentTimeVolunteerReceived: timeVolunteerReceived,
+                    incidentTimeVolunteerArrived: timeVolunteerArrived,
+                    incidentMultipleVolunteers: multipleVolunteers,
+                    incidentMultipleResponders:multipleResponders
+                })
+            });
 
     this.setState({incidentLocation:''})
     this.setState({
+        isFeedback:true,
         isSettled:false,
         isArrived: false,
         dispatchedResponder: false,
@@ -882,9 +885,9 @@ export default class Responder extends Component {
         this.fireBaseListener && this.fireBaseListener();
         this.user2 = app.database().ref(`users/${this.state.userId}/`);
         this.userIncidentId = app.database().ref(`incidents/${this.state.incidentID}`);
-        this.user2.off()
-        this.responderListen.off()
-        this.userIncidentId.off()
+        this.user2.off();
+        this.responderListen.off();
+        this.userIncidentId.off();
         this.authListener = undefined;
 
     }
@@ -901,6 +904,7 @@ export default class Responder extends Component {
         var coords2 = this.state.pointCoords[coords.length - 1];
         var coordLat = coords2.latitude;
         var coordLng = coords2.longitude;
+        
         app.database().ref("/incidents").push({
 
             //incident details
@@ -909,7 +913,7 @@ export default class Responder extends Component {
             incidentNote:this.state.incidentNote,
             reporterName: fullName,
             timeReceived: date,
-            reportedBy: fullName,
+            reporterUID: this.state.userId,
             markerLat:this.state.markerLat,
             markerLng:this.state.markerLng,
             image_uri:this.state.image_uri,
@@ -929,13 +933,17 @@ export default class Responder extends Component {
             requestResponders:'',
             requestVolunteers:'',
 
+            //forWeb
+            isDisplayCard:true,
+            isDisplayCardShown:false,
+
             //UIDS of responder and volunteer
             responderResponding: this.state.userId,
             volunteerResponding: '',
 
             //time of responder and volunteers
             timeResponderArrived: '',
-            timeResponderReceived: '',
+            timeResponderReceived: date,
             timeVolunteerReceived:'',
             timeVolunteerArrived:'',
 
@@ -963,8 +971,9 @@ export default class Responder extends Component {
             isArrivedVolunteerShown:false,
 
         }).then((snap) => {
-            const incidentUserKey = snap.key
-            this.setState({ incidentUserKey })
+            const incidentUserKey = snap.key;
+            this.setState({ incidentUserKey });
+            this.setState({incidentID:incidentUserKey});
             console.log("INCIDENT USER KEY HEREEEEE: ", this.state.userId);
         })
         this.setState({
@@ -1014,11 +1023,11 @@ export default class Responder extends Component {
 
     setIncidentID = () => {
         app.database().ref(`mobileUsers/Responder/${this.state.userId}`).update({
-            incidentID: this.state.incidentUserKey,
+            incidentID: this.state.incidentID,
             isAccepted:true,
         });
         app.database().ref(`users/${this.state.userId}`).update({
-            incidentId: this.state.incidentUserKey,
+            incidentId: this.state.incidentID,
             isAccepted:true,
         });
     }
@@ -1060,7 +1069,13 @@ export default class Responder extends Component {
         this.setState({ isModalVisible: !this.state.isModalVisible });
     }
     _toggleModal2 = () => {
-        this.setState({ isFeedbackVisible: !this.state.isFeedbackVisible, didSettle:false });
+        this.setState({ isFeedbackVisible: !this.state.isFeedbackVisible, didSettle:false, });
+
+        if(this.state.isFeedback){
+            this.setState({incidentFeedback:'',
+            incidentFeedbackLocation:'',isFeedback:false})
+        }
+        
     }
 
     _openDrawer = () => {
@@ -1121,7 +1136,7 @@ export default class Responder extends Component {
                             </View>           
                         : null }
 
-<Text style={color = '#ffffff'}>{this.state.ETA}</Text>
+<Text style={{color : '#ffffff'}}>ETA: {this.state.ETA} minutes</Text>
 
                     { this.state.incidentNote?
                         <View style={styles.buttonContainer}>
@@ -1380,12 +1395,19 @@ export default class Responder extends Component {
                 {!this.state.isIncidentReady ? null :
 
                     <ActionButton buttonColor="orange" position='left' offsetY={300} offsetX={13}
-                        renderIcon={() => (<Icon name="user-plus" style={styles.actionButtonIcon} />)}>
+                        renderIcon={() => (     
+                        <Image 
+                        style={{width:50, height:50}}
+                        source={require("../images/justice.png")} />)}>
                         <ActionButton.Item buttonColor='#3498db' title="I need more responders" onPress={() => { this.requestAdditionalResponders() }}>
-                            <Icon name="user-plus" style={styles.actionButtonIcon} />
+                        <Image 
+                        style={{width:50, height:50}}
+                        source={require("../images/police.png")} />
                         </ActionButton.Item>
                         <ActionButton.Item buttonColor='#1abc9c' title="I need more volunteers" onPress={() => { this.requestAdditionalVolunteers() }}>
-                            <Image source={require("../images/sendreport.png")} />
+                        <Image 
+                        style={{width:50, height:50}}
+                        source={require("../images/volunteer.png")} />
                         </ActionButton.Item>
                     </ActionButton>
                 }
