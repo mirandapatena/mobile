@@ -523,6 +523,7 @@ export default class Responder extends Component {
             isArrivedResponderShown: false,
             isRespondingResponder:true,
             isRespondingResponderShown:false,
+            name: this.state.firstName + ' ' + this.state.lastName
         });
 
         app.database().ref(`mobileUsers/Responder/${userId}`).update({

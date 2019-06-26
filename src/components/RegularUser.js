@@ -377,14 +377,17 @@ export default class RegularUser extends Component {
        isIncidentReady: false, 
        incidentLocation:'',
        pinUpdate:false, 
-       incidentID:'', 
+       incidentID:'',
+       incidentId:'', 
        responderLat: null, 
        volunteerLat: null,
        markerCoords: null,
       markerLat:null,
       markerLng:null,
       volunteerResponding:'',
-      responderResponding:''
+      responderResponding:'',
+      incidentNote: '',
+      destinationPlaceId: ''
    }); 
 
  }
