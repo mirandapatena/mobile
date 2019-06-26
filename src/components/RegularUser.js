@@ -384,8 +384,10 @@ export default class RegularUser extends Component {
       markerLat:null,
       markerLng:null,
       volunteerResponding:'',
-      responderResponding:''
-   }); 
+      responderResponding:'',
+
+       hasResponderAlerted: false, // has reponder 
+      }); 
 
  }
 
@@ -405,6 +407,18 @@ export default class RegularUser extends Component {
  regularListen.update({
  incidentID: '',
  });
+
+ this.setState({ 
+   isSettled: false, 
+   isIncidentReady: false, 
+   incidentLocation:'',
+   pinUpdate:false, 
+   // incidentID:'', 
+   responderLat: null, 
+   volunteerLat: null,
+   markerCoords: null,
+   hasResponderAlerted: false, // has reponder 
+  }); 
 
  }
 
@@ -1072,6 +1086,18 @@ export default class RegularUser extends Component {
  );
  }
 
+ let polylinemarker = null;
+
+ polylinemarker = (
+   <MapViewDirections
+   origin={{latitude: this.state.latitude, longitude: this.state.longitude}}
+   destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
+   apikey={apiKey}
+   strokeWidth={3}
+   strokeColor="hotpink"
+   />
+ )
+
  var markerVolunteer = null;
  if (this.state.volunteerLat) {
  markerVolunteer = (
@@ -1141,19 +1167,8 @@ export default class RegularUser extends Component {
  >
  {getUserLocation}
 
- {/* <Polyline
- coordinates={this.state.pointCoords}
- strokeWidth={4}
- strokeColor="red"
- /> */}
- {this.state.isSettled === true ? null : <MapViewDirections
- origin={{latitude: this.state.latitude, longitude: this.state.longitude}}
- destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
- apikey={apiKey}
- strokeWidth={3}
- strokeColor="hotpink"
- />
- }
+
+ {this.state.isSettled === true ? null : polylinemarker}
  {this.state.isSettled === true ? null : marker}
  {this.state.isSettled === true ? null : markerResponder}
  {this.state.isSettled === true ? null : markerVolunteer}

@@ -259,14 +259,12 @@ export default class Responder extends Component {
 
         app.database().ref(`incidents/${incidentID}`).update({
             isRespondingResponder: true,
-            isRespondingResponderShown:false,
-            isResponding:true,
-            unresponded:false,
+            isRespondingResponderShown: false,
             unrespondedResponder: false,
             responderResponding: this.state.userId,
             image_uri:this.state.image_uri,
-            timeResponderReceived: date,
-            originalResponderName:this.state.firstName+' '+this.state.lastName,
+            timeReceived: date,
+            originalResponderName:this.state.firstName+' '+this.state.lastName
         });
 
         app.database().ref(`mobileUsers/Responder/${userId}`).update({
@@ -290,8 +288,7 @@ export default class Responder extends Component {
         let incidentID = this.state.incidentId;
         console.log("incidentID on arrived Location", incidentID);
         app.database().ref(`incidents/${incidentID}`).update({
-            timeResponderArrived: date,
-            isArrivedResponder:true,
+            timeResponderResponded: date,
         });
     }
 
@@ -307,7 +304,6 @@ export default class Responder extends Component {
             isAccepted: false,
            pinUpdate:false
         })
-        
     }
 
     clearSettled = () => {
@@ -316,50 +312,29 @@ export default class Responder extends Component {
         let userId = this.state.userId;
         console.log("is settled?", incidentID, userId);
 
-        
-        if(this.state.didSettle){
-            this._toggleModal2()
-        }
-        else{
-            console.log("none");
-        }
-
-        app.database().ref(`incidents/${incidentID}`).update({
-            isShown:true,
-            unresponded:false,
-        });
-    
-        app.database().ref(`users/${userId}`).update({
-            incidentId:'',
-            isAccepted:false,
-        });
-
-        var responderListen = app.database().ref(`mobileUsers/Responder/${userId}`)
-        responderListen.update({
+        var responderListenSettled = app.database().ref(`mobileUsers/Responder/${userId}`);
+        responderListenSettled.update({
             incidentID: '',
             isAccepted: false,
-        });
-
-        
-
+        }).then(
+            this._toggleModal2()
+        );
+        if(this.state.didSettle){
+            this._toggleModal2;
+        }else {
+            console.log("ok");
+        }
         this.setState({
-            isSettled: false,
             dispatchedResponder: false,
-            isIncidentReady: false,
-            originalResponder: false,
-            isRequestingResponders: false,
-            requestResponders: false,
-            isAccepted: false,
-            pinUpdate:false,
-            unresponded:false,
-            isIncidentReady: false, 
-            incidentType: "Vehicular Accident",
-            incidentLocation: '', 
-            destinationPlaceId: '', 
-            markerLat:null,
-            markerLng:null
+            isArrived: false,
+            incidentID: "", // changes
+            incidentId: "", // changes
         });
-
+        app.database().ref(`users/${userId}`).update({
+            incidentID:"", //changes
+            isAccepted:false,
+        });
+      this.responderListen.off();
     }
 
     // clearSettledAdditional = () => {
@@ -389,9 +364,6 @@ export default class Responder extends Component {
 
     isSettled = () => {
 
-        var date = Date(Date.now());
-        date1= date.toString();
-
         let incidentID = this.state.incidentId;
         let userId = this.state.userId;
         console.log("is settled?", incidentID, userId);
@@ -399,26 +371,24 @@ export default class Responder extends Component {
         this.setState({
             isSettled: true,
             dispatchedResponder: false,
+            isIncidentReady: false,
             originalResponder: false,
             isRequestingResponders: false,
             requestResponders: false,
+            incidentId: "",
             isAccepted: false,
-            pinUpdate:false,
-            unresponded:false,
-            didSettle:true,
-            isArrived: false,
+            pinUpdate:false
         })
-        var responderListen = app.database().ref(`mobileUsers/Responder/${userId}`)
-        responderListen.update({
+        var responderListenIsSettled = app.database().ref(`mobileUsers/Responder/${userId}`)
+        responderListenIsSettled.update({
             incidentID: '',
             isAccepted: false,
         })
 
         app.database().ref(`incidents/${incidentID}`).update({
             isSettled: true,
-            unresponded:false,
-            isResponding:false,
-            timeSettled: date1,
+            isShown: true,
+            isRespondingResponderShown: true,
         });
      
     }
@@ -449,9 +419,8 @@ export default class Responder extends Component {
 
         let incidentID = this.state.incidentId;
         let userId = this.state.userId;
-
         console.log("incidentID on arrived Location", incidentID, userId);
-        app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
+        app.database().ref(`incidents/${incidentID}/additionalDispatched/${userId}`).update({
             timeArrived: date,
             isArrivedResponder: true
         });
@@ -516,7 +485,7 @@ export default class Responder extends Component {
             dispatchedResponder: true,
         })
 
-        app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
+        app.database().ref(`incidents/${incidentID}/additionalDispatched/${userId}`).update({
             timeArrived: '',
             timeReceived: date,
             isArrivedResponder: false,
@@ -556,7 +525,7 @@ export default class Responder extends Component {
     incidentListener = (userId) => {
         // this._isMounted = true;
         console.log("INCIDNE LISTENER", userId);
-        this.responderListen = app.database().ref(`mobileUsers/Responder/${userId}`)
+        this.responderListen = app.database().ref(`mobileUsers/Responder/${userId}`);
         var that = this;
         var incidentDetails = '';
 
@@ -572,9 +541,7 @@ export default class Responder extends Component {
             if (incidentID !== "") {
                 console.log("hey i got here");
                 this.userIncidentId = app.database().ref(`incidents/${incidentID}`);
-                // app.database().ref(`mobileUsers/Responder/${that.state.userId}`).update({
-                //     incidentID: incidentID,
-                // })
+
 
                 this.userIncidentId.on('value', (snapshot) => {
                     incidentDetails = snapshot.val() || null;
@@ -590,13 +557,13 @@ export default class Responder extends Component {
                     var responderResponding = incidentDetails.responderResponding;
                     var isSettled = incidentDetails.isSettled;
                     var isRequestingResponders = incidentDetails.isRequestingResponders;
-                    var isShown = incidentDetails.isShown;
-
+                
+                    var isRespondingResponderShown = incidentDetails.isRespondingResponderShown;
                     //REGULAR USER SENT REPORT, ORIGINAL RESPONDER
                     if (incidentID !== "" && responderResponding === "" && isSettled === false) {
                         console.log("ARGUMENT 1");
                         Alert.alert(
-                            "INCIDENT DETAILS ",
+                            "INCIDENT DETAILS (argument 1) ",
                             `Incident Type: ${incidentType}
                                                  Incident Location: ${incidentLocation}
                                                                          `
@@ -619,8 +586,9 @@ export default class Responder extends Component {
                     }
 
                     //ASK FOR ADDITIONAL RESPONDER
-                    else if (incidentID !== "" && responderResponding !== userId && isRequestingResponders === true && this.state.requestResponders === false && isSettled === false) {
-
+                    else if (incidentID !== "" && responderResponding !== userId && isRequestingResponders === true && isSettled === false) {
+                        if(!this.argument3){
+                            this.argument3 = true;
                         console.log("ARGUMENT 3");
                         Alert.alert(
                             "REQUESTING ADDITIONAL RESPONDER ",
@@ -634,13 +602,20 @@ export default class Responder extends Component {
                             { cancelable: false }
                         );
                         that.setState({ incidentType, incidentLocation, destinationPlaceId, incidentId: incidentID, userId, image_uri,markerLat,markerLng,incidentNote,originalVolunteerName});
+                        }else{
+                            this.argument3=false;
+                        }
+
                     }
 
-                    //RESPONDER WHO SENT REPORT SETTLES REPORT
-                    else if (isSettled === true && isShown ===false) {
+                    //INCIDENT SETTLED // changes
+                    else if ( incidentID !== "" && isSettled === true && isRespondingResponderShown === true) {
+                    
                         console.log("ARGUMENT 6");
-                       if(!this.incidentSettled){ 
-                           this.incidentSettled = true;
+                        that.setState({isIncidentReady: false, incidentType, incidentLocation, destinationPlaceId, incidentId: incidentID, userId,markerLat:null,markerLng:null});
+                        if(!this.isIncidentSettled){
+                            this.isIncidentSettled = true;
+                        
                         Alert.alert(
                             "INCIDENT HAS BEEN SETTLED43",
                             `Incident Type: ${incidentType}
@@ -652,12 +627,15 @@ export default class Responder extends Component {
                             ],
                             { cancelable: false }
                         );
-                        this.setState({destinationPlaceId:'',pinUpdate:false})
-                        }else{
-                            this.incidentSettled=false;
+                        }else {
+                            this.isIncidentSettled=false;
                         }
+                        
+
+
+                        this.setState({destinationPlaceId:'',pinUpdate:false})
                     }
-                    else if (incidentID !== "" && responderResponding !== userId && isRequestingResponders === true && this.state.requestResponders === true && isSettled === false) {
+                    else if (responderResponding !== userId && isRequestingResponders === true && isSettled === false) {
                         //condition requested responders
                         console.log("ARGUMENT 5");
                         that.setState({ isSettled: false, isIncidentReady: true, incidentType, incidentLocation, destinationPlaceId, incidentId: incidentID, userId , image_uri,markerLat,markerLng,incidentNote,originalVolunteerName});
@@ -665,11 +643,11 @@ export default class Responder extends Component {
                     }
                     
                     //Additional Responder Settles Report
-                    // else if (incidentID !== "" && responderResponding !== userId && isRequestingResponders === true && this.state.requestResponders === true && isSettled === true) {
+                    // else if (isSettled === true && isRespondingResponderShown === true) {
                     //     console.log("ARGUMENT 6");
                     //     that.setState({ isSettled: true, isIncidentReady: false, incidentType, incidentLocation, destinationPlaceId, incidentId: incidentID, userId, markerLat:null,markerLng:null});
                     //     Alert.alert(
-                    //         "INCIDENT HAS BEEN SETTLED",
+                    //         "INCIDENT HAS BEEN SETTLED (requested and )",
                     //         `Incident Type: ${incidentType}
                     //                              Incident Location: ${incidentLocation}
                     //                                                      `
@@ -743,10 +721,9 @@ export default class Responder extends Component {
     }
 
     componentDidMount() {
-        this._isMounted = true;
-        this.authListener()
+        // this._isMounted = true;
+        this.authListener();
        
-
         Geolocation.getCurrentPosition(
 
             position => {
@@ -791,86 +768,79 @@ export default class Responder extends Component {
     }
 
     sendIncidentFeedback = () => {
-        var incidentDetails = '';
-        var incidentType = '';
+        var time = Date(Date.now());
 
-        var incidentLocation= '', incidentNote= '', 
-        timeReceived= '', 
-        image_uri= '', reporterUID= '', reporterName= '', 
-        coordinates= '', multipleResponders= '', multipleVolunteers= '', requestResponders= '', 
-        requestVolunteers= '', responderResponding= '', volunteerResponding= '',
-        timeResponderArrived= '',
-        timeResponderReceived= '',
-        timeVolunteerReceived= '',
-        timeVolunteerArrived= '',
-        isRedundantReport= '',
-        originalResponderName= '',
-            originalVolunteerName= '', timeSettled= '';
+        app.database().ref(`/Archives/${this.state.incidentId}`).update({
+            feedbackByResponder:this.state.firstName+' '+this.state.lastName,
+            feedbackLocation: this.state.incidentFeedbackLocation,
+            feedbackReport:this.state.incidentFeedback,
+            feedbackTimeSettled:time,
+            incidentType:this.state.incidentType,
+            incidentOriginalVolunteer: this.state.originalVolunteerName,
+            incidentOriginalResponder:this.state.originalResponderName,
+            
+        });
 
-            app.database().ref(`incidents/${this.state.incidentId}`).once('value', (snapshot) => {
-                incidentDetails = snapshot.val();
-                incidentType = incidentDetails.incidentType;
-                incidentLocation = incidentDetails.incidentLocation;
-                image_uri = incidentDetails.image_uri;
-                incidentNote=incidentDetails.incidentNote;
-                coordinates = incidentDetails.coordinates;
-                reporterUID = incidentDetails.reporterUID
-                reporterName = incidentDetails.reporterName;
-                multipleVolunteers = incidentDetails.multipleVolunteers;
-                originalVolunteerName=incidentDetails.originalVolunteerName;
-                originalResponderName=incidentDetails.originalResponderName;
+        app.database().ref(`incidents/${this.state.incidentId}/incidentLocation`).once('value').then(snap=>{
+            app.database().ref(`/Archives/${this.state.incidentId}/incidentLocation`).set(snap.val());
+        }).then(() => {
+            console.log('Done!');
+       }).catch(err => {
+            console.log(err.message);
+       });
+       
+        app.database().ref(`incidents/${this.state.incidentId}/reporterName`).once('value').then(snap=>{
+            app.database().ref(`/Archives/${this.state.incidentId}/incidentReportedBy`).set(snap.val());
+        }).then(() => {
+            console.log('Done!');
+       }).catch(err => {
+            console.log(err.message);
+       });
 
-                isRedundantReport = incidentDetails.isRedundantReport;
-    
-                responderResponding = incidentDetails.responderResponding;
-                volunteerResponding = incidentDetails.volunteerResponding;
-    
-                multipleResponders = incidentDetails.multipleResponders;
-                requestVolunteers = incidentDetails.requestVolunteers;
-                requestResponders = incidentDetails.requestResponders;
-    
-                timeVolunteerArrived = incidentDetails.timeVolunteerArrived;
-                timeResponderArrived = incidentDetails.timeResponderArrived;
-                timeVolunteerReceived = incidentDetails.timeVolunteerReceived;
-                timeResponderReceived= incidentDetails.timeResponderReceived;
-                timeSettled = incidentDetails.timeSettled;
-                timeReceived = incidentDetails.timeReceived;
 
-                app.database().ref(`/Archives/${this.state.incidentId}`).set({
-                    feedbackByResponder:this.state.firstName+' '+this.state.lastName,
-                    feedbackLocation: this.state.incidentFeedbackLocation, //Detailed location FROM RESPONDER
-                    feedbackReport:this.state.incidentFeedback, //Feedback form RESPONDER
-        
-                    incidentAdditionalResponders:requestResponders,
-                    incidentAdditionalVolunteers: requestVolunteers,
-                    incidentCoordinates: coordinates,
-                    incidentLocation: incidentLocation,
-                    incidentType: incidentType,
-                    incidentNote: incidentNote,
-                    incidentImage: image_uri,
-                    incidentTimeReceived: timeReceived,
-                    feedbackTimeSettled:timeSettled,
-        
-                    incidentIsRedundant: isRedundantReport,
-        
-                    incidentOriginalResponder: originalResponderName,
-                    incidentOriginalResponderUID: responderResponding,
-                    incidentOriginalVolunteer: originalVolunteerName,
-                    incidentOriginalVolunteerUID: volunteerResponding,
-                    incidentReportedBy: reporterName,
-                    incidentReporterUID: reporterUID,
-                    incidentTimeResponderReceived: timeResponderReceived,
-                    incidentTimeResponderArrived: timeResponderArrived,
-                    incidentTimeVolunteerReceived: timeVolunteerReceived,
-                    incidentTimeVolunteerArrived: timeVolunteerArrived,
-                    incidentMultipleVolunteers: multipleVolunteers,
-                    incidentMultipleResponders:multipleResponders
-                })
-            });
+       app.database().ref(`incidents/${this.state.incidentId}/requestVolunteers`).once('value').then(snap=>{
+        app.database().ref(`/Archives/${this.state.incidentId}/incidentAdditionalVolunteers`).set(snap.val());
+    }).then(() => {
+        console.log('Done!');
+   }).catch(err => {
+        console.log(err.message);
+   });
+
+   app.database().ref(`incidents/${this.state.incidentId}/requestResponders`).once('value').then(snap=>{
+    app.database().ref(`/Archives/${this.state.incidentId}/incidentAdditionalResponders`).set(snap.val());
+}).then(() => {
+    console.log('Done!');
+}).catch(err => {
+    console.log(err.message);
+});
+
+    app.database().ref(`incidents/${this.state.incidentId}/coordinates`).once('value').then(snap=>{
+        app.database().ref(`/Archives/${this.state.incidentId}/incidentCoordinates`).set(snap.val());
+    }).then(() => {
+        console.log('Done!');
+    }).catch(err => {
+        console.log(err.message);
+    });
+
+    app.database().ref(`incidents/${this.state.incidentId}/timeReceived`).once('value').then(snap=>{
+        app.database().ref(`/Archives/${this.state.incidentId}/incidentTimeReceived`).set(snap.val());
+    }).then(() => {
+        console.log('Done!');
+    }).catch(err => {
+        console.log(err.message);
+    });
+
+    app.database().ref(`incidents/${this.state.incidentId}/image_uri`).once('value').then(snap=>{
+        app.database().ref(`/Archives/${this.state.incidentId}/incidentImage`).update(snap.val());
+    }).then(() => {
+        console.log('Done!');
+    }).catch(err => {
+        console.log(err.message);
+    });
+
 
     this.setState({incidentLocation:''})
     this.setState({
-        isFeedback:true,
         isSettled:false,
         isArrived: false,
         dispatchedResponder: false,
@@ -879,8 +849,7 @@ export default class Responder extends Component {
         isRequestingResponders: false,
         requestResponders: false,
         isAccepted: false,
-        pinUpdate:false,
-        incidentID:false,
+        pinUpdate:false
     })
         this._toggleModal2();
     }
@@ -910,76 +879,37 @@ export default class Responder extends Component {
         var coords2 = this.state.pointCoords[coords.length - 1];
         var coordLat = coords2.latitude;
         var coordLng = coords2.longitude;
-        
         app.database().ref("/incidents").push({
-
-            //incident details
+            reporterName: fullName,
             incidentType: this.state.incidentType,
             incidentLocation: this.state.incidentLocation,
-            incidentNote:this.state.incidentNote,
-            reporterName: fullName,
-            timeReceived: date,
-            reporterUID: this.state.userId,
+            unresponded: true,
+            isResponding: false,
             markerLat:this.state.markerLat,
             markerLng:this.state.markerLng,
+            isSettled: false,
+            incidentNote:this.state.incidentNote,
+            isRespondingResponderShown: false,
+            originalVolunteerName:this.state.originalVolunteerName,
             image_uri:this.state.image_uri,
+            reportedBy: this.state.firstName+' '+this.state.lastName,
+            timeReceived: date,
+            timeResponderResponded: '',
+            responderResponding: this.state.userId,
+            originalResponderName:this.state.firstName+' '+this.state.lastName,
+            volunteerResponding: '',
             coordinates: {
                 lat: coordLat,
                 lng: coordLng
             },
             destinationPlaceId: this.state.destinationPlaceId,
-            
-            //names of responder and volunteer
-            originalResponderName: fullName,
-            originalVolunteerName:'',
-           
-            //for multiples
-            multipleResponders:'',
-            multipleVolunteers:'',
-            requestResponders:'',
-            requestVolunteers:'',
-
-            //forWeb
-            isDisplayCard:true,
-            isDisplayCardShown:false,
-
-            //UIDS of responder and volunteer
-            responderResponding: this.state.userId,
-            volunteerResponding: '',
-
-            //time of responder and volunteers
-            timeResponderArrived: '',
-            timeResponderReceived: date,
-            timeVolunteerReceived:'',
-            timeVolunteerArrived:'',
-
-            //flags
-            isRedundantReport:false,
-
-            unresponded: false,
-            isResponding: true,
-            isSettled: false,
-            isShown: false,
-
             isRequestingResponders: false,
             isRequestingVolunteers: false,
-            
-            isRespondingResponder:true,
-            isRespondingVolunteer: false,
-
-            isRespondingResponderShown:false,
-            isRespondingVolunteerShown:false,
-
-            isArrivedResponder:false,
-            isArrivedResponderShown:false,
-
-            isArrivedVolunteer:false,
-            isArrivedVolunteerShown:false,
-
+            requestResponders:'',
+            requestVolunteers:'',
         }).then((snap) => {
-            const incidentUserKey = snap.key;
-            this.setState({ incidentUserKey });
-            this.setState({incidentID:incidentUserKey});
+            const incidentUserKey = snap.key
+            this.setState({ incidentUserKey })
             console.log("INCIDENT USER KEY HEREEEEE: ", this.state.userId);
         })
         this.setState({
@@ -1029,11 +959,11 @@ export default class Responder extends Component {
 
     setIncidentID = () => {
         app.database().ref(`mobileUsers/Responder/${this.state.userId}`).update({
-            incidentID: this.state.incidentID,
+            incidentID: this.state.incidentUserKey,
             isAccepted:true,
         });
         app.database().ref(`users/${this.state.userId}`).update({
-            incidentId: this.state.incidentID,
+            incidentId: this.state.incidentUserKey,
             isAccepted:true,
         });
     }
@@ -1075,13 +1005,7 @@ export default class Responder extends Component {
         this.setState({ isModalVisible: !this.state.isModalVisible });
     }
     _toggleModal2 = () => {
-        this.setState({ isFeedbackVisible: !this.state.isFeedbackVisible, didSettle:false, });
-
-        if(this.state.isFeedback){
-            this.setState({incidentFeedback:'',
-            incidentFeedbackLocation:'',isFeedback:false})
-        }
-        
+        this.setState({ isFeedbackVisible: !this.state.isFeedbackVisible, didSettle:false });
     }
 
     _openDrawer = () => {
@@ -1142,8 +1066,6 @@ export default class Responder extends Component {
                             </View>           
                         : null }
 
-<Text style={{color : '#ffffff'}}>ETA: {this.state.ETA} minutes</Text>
-
                     { this.state.incidentNote?
                         <View style={styles.buttonContainer}>
                             <AwesomeButton height={30} width={120} backgroundColor="#467541"
@@ -1153,8 +1075,7 @@ export default class Responder extends Component {
                             </View>
                         :null }
                 </View>
-                {this.state.responderDistance<=0.1 ?
-                    !this.state.isArrived ? (
+                {!this.state.isArrived ? (
                          this.state.requestResponders === true ?
                             <View style={styles.buttonContainer}>
                                 <AwesomeButton height={30} width={120} backgroundColor="#467541"
@@ -1164,7 +1085,7 @@ export default class Responder extends Component {
                                 </View> :
                             this.state.dispatchedResponder === false ?
                                 <View style={styles.buttonContainer}>
-                                    
+                                    <Text>{this.state.ETA}</Text>
                                     <AwesomeButton height={30} width={120} backgroundColor="#467541" 
                                     onPress={this.arrivedLocation}>
                                         I have arrived! 
@@ -1182,7 +1103,7 @@ export default class Responder extends Component {
                                 onPress={this.isSettled}>
                                     Incident is settled!
                                     </AwesomeButton>
-                                </View>:null
+                                </View>
                             }      
                 
             </View>
@@ -1310,7 +1231,7 @@ export default class Responder extends Component {
             destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
              onReady={result => {
               console.log(`Distance: ${result.distance} km`)
-              this.setState({ETA:result.duration,responderDistance:result.distance})
+              this.setState({ETA:result.duration})
               console.log(`Duration: ${result.duration} min.`)
             }}
             apikey={apiKey}
@@ -1400,20 +1321,21 @@ export default class Responder extends Component {
 
                 {!this.state.isIncidentReady ? null :
 
-                    <ActionButton buttonColor="orange" position='left' offsetY={300} offsetX={13}
-                        renderIcon={() => (     
+                    <ActionButton buttonColor="orange" position='left' offsetY={200} offsetX={13}
+                        renderIcon={() => (   
                         <Image 
-                        style={{width:50, height:50}}
+                        style={{width: 50, height: 50}}
                         source={require("../images/justice.png")} />)}>
+        
                         <ActionButton.Item buttonColor='#3498db' title="I need more responders" onPress={() => { this.requestAdditionalResponders() }}>
-                        <Image 
-                        style={{width:50, height:50}}
-                        source={require("../images/police.png")} />
+                        <Image
+                          style={{width: 50, height: 50}}
+                         source={require("../images/police.png")} />
                         </ActionButton.Item>
                         <ActionButton.Item buttonColor='#1abc9c' title="I need more volunteers" onPress={() => { this.requestAdditionalVolunteers() }}>
-                        <Image 
-                        style={{width:50, height:50}}
-                        source={require("../images/volunteer.png")} />
+                            <Image 
+                             style={{width: 50, height: 50}}
+                            source={require("../images/volunteer.png")} />
                         </ActionButton.Item>
                     </ActionButton>
                 }
