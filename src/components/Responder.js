@@ -437,6 +437,7 @@ export default class Responder extends Component {
         console.log("incidentID on arrived Location", incidentID, userId);
         app.database().ref(`incidents/${incidentID}/requestResponders/${userId}`).update({
             timeArrived: date,
+            isArrivedResponder: true,
         });
     }
 
@@ -452,6 +453,7 @@ export default class Responder extends Component {
         console.log("incidentID on arrived Location", incidentID, userId);
         app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
             timeArrived: date,
+            isArrivedResponder: true
         });
     }
 
@@ -470,17 +472,17 @@ export default class Responder extends Component {
             name:this.state.firstName+ '' +this.state.lastName,
             timeArrived: '',
             timeReceived: date,
+            isArrivedResponder: false,
+            isArrivedResponderShown: false,
+            isRespondingResponder:true,
+            isRespondingResponderShown:false,
         });
 
         app.database().ref(`mobileUsers/Responder/${userId}`).update({
             isAccepted: true,
         });
 
-        this.getRouteDirection(destinationPlaceId, incidentLocation);
-
-     
-
-        
+        this.getRouteDirection(destinationPlaceId, incidentLocation);       
 }
 
     requestAdditionalResponders = () => {
@@ -517,6 +519,10 @@ export default class Responder extends Component {
         app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
             timeArrived: '',
             timeReceived: date,
+            isArrivedResponder: false,
+            isArrivedResponderShown: false,
+            isRespondingResponder:true,
+            isRespondingResponderShown:false,
         });
 
         app.database().ref(`mobileUsers/Responder/${userId}`).update({

@@ -233,6 +233,7 @@ export default class Volunteer extends Component {
         console.log("incidentID on arrived Location", incidentID, userId);
         app.database().ref(`incidents/${incidentID}/multipleVolunteers/${userId}`).update({
             timeArrived: date,
+            isArrivedVolunteer:true,
         });
     }
 
@@ -275,6 +276,7 @@ export default class Volunteer extends Component {
 
         app.database().ref(`incidents/${incidentID}/requestVolunteers/${userId}`).update({
             timeArrived: date1,
+            isArrivedVolunteer:true,
         });
     }
 
@@ -295,6 +297,10 @@ export default class Volunteer extends Component {
             name:this.state.firstName+' '+this.state.lastName,
             timeArrived: '',
             timeReceived: date,
+            isArrivedVolunteer:false,
+            isArrivedVolunteerShown:false,
+            isRespondingVolunteer:true,
+            isRespondingVolunteerShown:false,
         });
 
         app.database().ref(`mobileUsers/Volunteer/${userId}`).update({
@@ -334,6 +340,10 @@ export default class Volunteer extends Component {
             name:this.state.firstName+' '+this.state.lastName,
             timeArrived: '',
             timeReceived: date1,
+            isArrivedVolunteer:false,
+            isArrivedVolunteerShown:false,
+            isRespondingVolunteer:true,
+            isRespondingVolunteerShown:false
         });
 
         app.database().ref(`mobileUsers/Volunteer/${userId}`).update({

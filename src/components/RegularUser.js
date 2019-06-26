@@ -380,7 +380,12 @@ export default class RegularUser extends Component {
        incidentID:'', 
        responderLat: null, 
        volunteerLat: null,
-       markerCoords: null}); 
+       markerCoords: null,
+      markerLat:null,
+      markerLng:null,
+      volunteerResponding:'',
+      responderResponding:''
+   }); 
 
  }
 
