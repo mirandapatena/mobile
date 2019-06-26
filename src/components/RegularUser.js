@@ -653,6 +653,8 @@ if(!this.incidentAlertSettled){
 
  _toggleModal = () => {
  this.setState({ isModalVisible: !this.state.isModalVisible });
+ this.setState({pinUpdate:false, image_uri:'', destinationPlaceId: null, incidentNote: '', incidentLocation:'', markerLat: null,
+        markerLng:null,});
  }
 
  _openDrawer = () => {
@@ -1374,7 +1376,7 @@ const styles = StyleSheet.create({
  padding: 30,
  flexDirection: 'column',
  justifyContent: 'center',
- backgroundColor: '#6565fc'
+ backgroundColor: '#232323'
  },
  buttonContainer: {
  flex: 1,

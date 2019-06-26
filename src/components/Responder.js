@@ -266,7 +266,7 @@ export default class Responder extends Component {
             responderResponding: this.state.userId,
             image_uri:this.state.image_uri,
             timeResponderReceived: date,
-            originalResponderName:this.state.firstName+' '+this.state.lastName,
+            originalResponderName:this.state.firstName+" "+this.state.lastName,
         });
 
         app.database().ref(`mobileUsers/Responder/${userId}`).update({
@@ -906,7 +906,7 @@ export default class Responder extends Component {
 
     submitIncidentHandler = () => {
         var time = Date(Date.now());
-        var fullName = this.state.firstName+''+this.state.lastName
+        var fullName = this.state.firstName+" "+this.state.lastName;
         date = time.toString();
         this.setState({isModalVisible: !this.state.isModalVisible,
         })
@@ -1077,7 +1077,10 @@ export default class Responder extends Component {
 
     _toggleModal = () => {
         this.setState({ isModalVisible: !this.state.isModalVisible });
+        this.setState({pinUpdate:false, image_uri:'', destinationPlaceId: null, incidentNote: '', incidentLocation:'', markerLat: null,
+        markerLng:null,});
     }
+    
     _toggleModal2 = () => {
         this.setState({ isFeedbackVisible: !this.state.isFeedbackVisible, didSettle:false, });
 
@@ -1541,7 +1544,7 @@ export default class Responder extends Component {
                  
                     >
 
-                        <Text style={{ justifyContent: 'center', color: 'white' }} >Submit Incident2222</Text>
+                        <Text style={{ justifyContent: 'center', color: 'white' }} >Submit Incident</Text>
                     </Button>
                      
                     </Modal>
@@ -1584,6 +1587,21 @@ export default class Responder extends Component {
 
 />
 }
+{this.state.destinationPlaceId ? null:       <Button
+    style={{ fontSize: 18, color: 'white' }}
+    onPress={this.usePinLocation}
+    containerStyle={{
+        padding: 8,
+        marginLeft: 70,
+        marginRight: 70,
+        height: 40,
+        borderRadius: 6,
+        backgroundColor: 'mediumseagreen',
+        marginTop: 20,
+    }}
+>
+    <Text style={{ justifyContent: 'center', color: 'white' }} >Use Pin Location</Text>
+</Button>}
  <TextInput
                     
                     placeholder="Additional Details"
@@ -1641,21 +1659,7 @@ export default class Responder extends Component {
 
                         <Text style={{ justifyContent: 'center', color: 'white' }} >Submit Incident</Text>
                     </Button>
-                    {this.state.destinationPlaceId ? null:       <Button
-                        style={{ fontSize: 18, color: 'white' }}
-                        onPress={this.usePinLocation}
-                        containerStyle={{
-                            padding: 8,
-                            marginLeft: 70,
-                            marginRight: 70,
-                            height: 40,
-                            borderRadius: 6,
-                            backgroundColor: 'mediumseagreen',
-                            marginTop: 20,
-                        }}
-                    >
-                        <Text style={{ justifyContent: 'center', color: 'white' }} >Use Pin Location</Text>
-                    </Button>}
+                    
                     <ImageView
                     glideAlways
                     style={{flex:1,width:undefined,height:undefined}}

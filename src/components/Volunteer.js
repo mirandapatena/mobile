@@ -697,15 +697,18 @@ export default class Volunteer extends Component {
                 </View>
 
                 <View style={{flexDirection:"row"}}>
-                    {this.state.requestVolunteers === true ?
-                        <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => { this.arrivedLocationRequested() }}>I have arrived! (Requested)</AwesomeButton></View>
-                        :
-                        this.state.dispatchedVolunteer === false ?
-                            <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => { this.arrivedLocation() }}>I have arrived! </AwesomeButton></View>
-                            :
-                            <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => this.arrivedLocationDispatched()}>I have arrived! (Dispatched) </AwesomeButton></View>
+                    {this.state.responderDistance <= 0.1 ?(
+                        this.state.requestVolunteers === true ?
+    <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => { this.arrivedLocationRequested() }}>I have arrived! (Requested)</AwesomeButton></View>
+    :
+    this.state.dispatchedVolunteer === false ?
+        <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => { this.arrivedLocation() }}>I have arrived! </AwesomeButton></View>
+        :
+        <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => this.arrivedLocationDispatched()}>I have arrived! (Dispatched) </AwesomeButton></View>
 
-                    }
+
+                    ): null}
+                    
                      {this.state.image_uri?    
                 <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => {
                         this.setState({
@@ -713,6 +716,9 @@ export default class Volunteer extends Component {
                         });
                     }}>Check Photo </AwesomeButton></View>           
                     :null }
+
+<Text style={{color : '#ffffff'}}>ETA: {this.state.ETA} minutes</Text>
+
                     {this.state.incidentNote?
                      <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => {
                         alert(JSON.stringify(this.state.incidentNote))
@@ -800,6 +806,11 @@ export default class Volunteer extends Component {
             <MapViewDirections
     origin={{latitude: this.state.latitude, longitude: this.state.longitude}}
     destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
+    onReady={result => {
+        console.log(`Distance: ${result.distance} km`)
+        this.setState({ETA:result.duration,responderDistance:result.distance})
+        console.log(`Duration: ${result.duration} min.`)
+      }}
     apikey={apiKey}
     strokeWidth={3}
     strokeColor="hotpink"
@@ -985,7 +996,7 @@ const styles = StyleSheet.create({
         padding: 30,
         flexDirection: 'column',
         justifyContent: 'center',
-        backgroundColor: '#6565fc'
+        backgroundColor: '#232323'
     },
     container: {
         ...StyleSheet.absoluteFillObject,
