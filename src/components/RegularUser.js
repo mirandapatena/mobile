@@ -40,6 +40,8 @@ export default class RegularUser extends Component {
  super(props);
  this.getImage = this.getImage.bind(this)
  this.state = {
+    updateResponder: '',
+    updateVolunteer: '',
  isModalVisible: false,
  hasResponderAlerted: false,
  isRespondingResponderShown: false,
@@ -403,7 +405,7 @@ if(!this.incidentAlertSettled){
  `Thank you for reporting! `
  ,
  [
- { text: "Ok", onPress: () => { this.clearSettled() } },
+ { text: "Ok", onPress: () => { this.clearSettled } },
  ],
  { cancelable: false }
  );
@@ -452,17 +454,20 @@ if(!this.incidentAlertSettled){
  if (responderRespondingID) {
  if (hasResponderAlerted===false&&isRespondingResponder === true && isRespondingResponderShown ===false) {
    if(!this.responderAccepted){ 
+      that.setState({updateResponder: "A responder has accepted the incident."});
       this.responderAccepted = true;
-   Alert.alert(
-   "A Responder has accepted an incident "
-   , `Responder is on the way!`,
-   [
-   {
-   text: "Ok", onPress: () => {that.setState({ hasResponderAlerted:true }); }
-   },
-   ],
-   { cancelable: false }
-   );}
+   // Alert.alert(
+   // "A Responder has accepted an incident "
+   // , `Responder is on the way!`,
+   // [
+   // {
+   // text: "Ok", onPress: () => {that.setState({ hasResponderAlerted:true }); }
+   // },
+   // ],
+   // { cancelable: false }
+   // );
+   
+}
    else{
       this.responderAccepted = false;
    }
@@ -470,16 +475,17 @@ if(!this.incidentAlertSettled){
   if (timeResponderArrived !== '' && isArrivedResponder === true && isArrivedResponderShown === false){
    if(!this.responderArrived){ 
       this.responderArrived = true;
-   Alert.alert(
-      "A Responder has arrived at the incident "
-      , ``,
-      [
-      {
-      text: "Ok", onPress: () => {console.log("Ok"); }
-      },
-      ],
-      { cancelable: false }
-      );
+   // Alert.alert(
+   //    "A Responder has arrived at the incident "
+   //    , ``,
+   //    [
+   //    {
+   //    text: "Ok", onPress: () => {console.log("Ok"); }
+   //    },
+   //    ],
+   //    { cancelable: false }
+   //    );
+   that.setState({updateResponder: "A responder has arrived at the incident."});
    }else{
       this.responderArrived = false;
    }
@@ -491,7 +497,10 @@ if(!this.incidentAlertSettled){
  else {
  console.log("responder NOT responding", responderRespondingID);
  that.setState({ responderRespondingID });
- that.responderCoordinates(responderRespondingID);
+
+ that.setState({updateResponder: "Command Center is still assessing the report..."})
+ 
+//  that.responderCoordinates(responderRespondingID);
  }
 
  }
@@ -898,6 +907,15 @@ if(!this.incidentAlertSettled){
  marginTop: 5
  }}>
  {this.state.incidentType}
+ </Text>
+ <Text style={{
+ fontSize: 17,
+ color: 'white',
+ fontWeight: 'bold',
+ textAlign: 'center',
+ marginTop: 5
+ }}>
+ {this.state.updateResponder}
  </Text>
  <Text style={{
  color: 'white',
