@@ -380,6 +380,7 @@ export default class RegularUser extends Component {
        incidentID:'',
        incidentId:'', 
        responderLat: null, 
+       responderLng: null,
        volunteerLat: null,
        markerCoords: null,
       markerLat:null,
@@ -387,13 +388,16 @@ export default class RegularUser extends Component {
       volunteerResponding:'',
       responderResponding:'',
       incidentNote: '',
-      destinationPlaceId: ''
+      destinationPlaceId: '',
+       image_uri:'',
+       
    }); 
 
  }
 
  incidentSettled = () => {
-
+if(!this.incidentAlertSettled){
+   this.incidentAlertSettled= true;
  Alert.alert(
  "INCIDENT HAS BEEN RESPONDED!! ",
  `Thank you for reporting! `
@@ -403,6 +407,9 @@ export default class RegularUser extends Component {
  ],
  { cancelable: false }
  );
+}else{
+   this.incidentAlertSettled=false;
+}
 
  var regularListen = app.database().ref(`mobileUsers/Regular User/${this.state.userId}`);
  regularListen.update({

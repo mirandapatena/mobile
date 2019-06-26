@@ -295,20 +295,20 @@ export default class Responder extends Component {
         });
     }
 
-    clearStates = () => {
-        this.setState({
-            isSettled: false,
-            dispatchedResponder: false,
-            isIncidentReady: false,
-            originalResponder: false,
-            isRequestingResponders: false,
-            requestResponders: false,
-            incidentId: "",
-            isAccepted: false,
-           pinUpdate:false
-        })
+    // clearStates = () => {
+    //     this.setState({
+    //         isSettled: false,
+    //         dispatchedResponder: false,
+    //         isIncidentReady: false,
+    //         originalResponder: false,
+    //         isRequestingResponders: false,
+    //         requestResponders: false,
+    //         incidentId: "",
+    //         isAccepted: false,
+    //        pinUpdate:false
+    //     })
         
-    }
+    // }
 
     clearSettled = () => {
 
@@ -355,9 +355,13 @@ export default class Responder extends Component {
             isIncidentReady: false, 
             incidentType: "Vehicular Accident",
             incidentLocation: '', 
-            destinationPlaceId: '', 
+            //destinationPlaceId: '', 
             markerLat:null,
-            markerLng:null
+            markerLng:null,
+            image_uri:'',
+            incidentNote:'',
+            isArrived: false,
+
         });
 
     }
@@ -406,7 +410,6 @@ export default class Responder extends Component {
             pinUpdate:false,
             unresponded:false,
             didSettle:true,
-            isArrived: false,
         })
         var responderListen = app.database().ref(`mobileUsers/Responder/${userId}`)
         responderListen.update({
@@ -513,7 +516,6 @@ export default class Responder extends Component {
         console.log("OTHER DISPATCHED", this.state.userId);
         this.setState({
             isIncidentReady: true,
-            dispatchedResponder: true,
         })
 
         app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
@@ -695,6 +697,7 @@ export default class Responder extends Component {
                                 ],
                                 { cancelable: false }
                             );
+                            that.setState({dispatchedResponder: true})
                             that.setState({ incidentType, incidentLocation, destinationPlaceId, incidentId: incidentID, userId, image_uri,markerLat,markerLng,originalVolunteerName});
                         }
                         this.getRouteDirection(destinationPlaceId, incidentLocation);
