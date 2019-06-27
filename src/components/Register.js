@@ -252,7 +252,7 @@ class Register extends Component {
             this.doSendEmailVerification()
             let points=this.computePoints()
             Alert.alert(JSON.stringify(`Account ${values.email} has been created, 
-            Please check your Email Address to Verify your account!`))
+            Please check your Email Address to verify your account!`))
             Keyboard.dismiss();
             let app = fire2.database().ref('users/' + user.user.uid);
             

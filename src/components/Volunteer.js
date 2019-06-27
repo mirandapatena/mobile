@@ -172,8 +172,7 @@ export default class Volunteer extends Component {
             unrespondedVolunteer: false,
             volunteerResponding: this.state.userId,
             timeVolunteerReceived: date1,
-            originalVolunteerName:this.state.firstName+' '+this.state.lastName
-
+            originalVolunteerName:this.state.firstName+' '+this.state.lastName,
         });
 
         app.database().ref(`users/${this.state.userId}`).update({
@@ -291,8 +290,11 @@ export default class Volunteer extends Component {
             dispatchedResponder: true,
         })
 
+        app.database().ref(`incidents/${incidentID}`).update({
+            isMultipleVolunteerDispatch:true 
+        })
        
-
+        
         app.database().ref(`incidents/${incidentID}/multipleVolunteers/${userId}`).update({
             name:this.state.firstName+' '+this.state.lastName,
             timeArrived: '',
@@ -301,6 +303,7 @@ export default class Volunteer extends Component {
             isArrivedVolunteerShown:false,
             isRespondingVolunteer:true,
             isRespondingVolunteerShown:false,
+            
         });
 
         app.database().ref(`mobileUsers/Volunteer/${userId}`).update({
@@ -430,7 +433,6 @@ export default class Volunteer extends Component {
                         else if (volunteerResponding !== userId && isRequestingVolunteers === true && this.state.requestVolunteers === false) {
                             if(!that.requestAdditional){
                                 that.requestAdditional = true;
-                            
                             Alert.alert(
                                 "REQUESTING ADDITIONAL VOLUNTEER ",
                                 `Incident Type: ${incidentType}
@@ -500,10 +502,10 @@ export default class Volunteer extends Component {
                         else if (volunteerResponding !== userId && isRequestingVolunteers === false && this.state.requestVolunteers === false && isSettled === false) {
                             console.log("ARGUMENT 7");
                             if (that.state.dispatchedVolunteer === false) {
-                                if(!that.argument7){
-                                    that.argument7=true;
+                                // if(!that.argument7){
+                                //     that.argument7=true;
                                 Alert.alert(
-                                    "INCIDENT DETAILS",
+                                    "INCIDENT DETAILS2",
                                     `Incident Type: ${incidentType}
                                                                              Incident Location: ${incidentLocation}
                                                                                                      `
@@ -514,11 +516,14 @@ export default class Volunteer extends Component {
                                     ],
                                     { cancelable: false }
                                 );
-                                }else{
-                                    that.argument7=false;
-                                }
-                                that.setState({ incidentType, incidentLocation, destinationPlaceId, incidentId: incidentID, userId,image_uri,markerLat,markerLng,incidentNote });
+                               
+                                // }
+                                // else{
+                                //     that.argument7=false;
+                                // }
                                 that.setState({dispatchedVolunteer : true});
+                                that.setState({ incidentType, incidentLocation, destinationPlaceId, incidentId: incidentID, userId,image_uri,markerLat,markerLng,incidentNote });
+                          
                                 
                             }
                             this.getRouteDirection(destinationPlaceId, incidentLocation);
@@ -808,7 +813,7 @@ export default class Volunteer extends Component {
     destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
     onReady={result => {
         console.log(`Distance: ${result.distance} km`)
-        this.setState({ETA:result.duration,responderDistance:result.distance})
+        this.setState({ETA:result.duration.toFixed(2),responderDistance:result.distance})
         console.log(`Duration: ${result.duration} min.`)
       }}
     apikey={apiKey}

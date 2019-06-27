@@ -381,6 +381,8 @@ export default class RegularUser extends Component {
        pinUpdate:false, 
        incidentID:'',
        incidentId:'', 
+       markerResponder:null,
+       markerVolunteer:null,
        responderLat: null, 
        responderLng: null,
        volunteerLat: null,
@@ -392,31 +394,55 @@ export default class RegularUser extends Component {
       incidentNote: '',
       destinationPlaceId: '',
        image_uri:'',
+       responderRespondingID:'',
+       volunteerRespondingID:''
        
    }); 
 
  }
 
  incidentSettled = () => {
-if(!this.incidentAlertSettled){
+   if(!this.incidentAlertSettled){
    this.incidentAlertSettled= true;
  Alert.alert(
  "INCIDENT HAS BEEN RESPONDED!! ",
  `Thank you for reporting! `
  ,
  [
- { text: "Ok", onPress: () => { this.clearSettled } },
+ { text: "Ok", onPress: () => { this.clearSettled() } },
  ],
  { cancelable: false }
- );
-}else{
-   this.incidentAlertSettled=false;
-}
+ );}else{
+    this.incidentAlertSettled=false;
+ }
+
 
  var regularListen = app.database().ref(`mobileUsers/Regular User/${this.state.userId}`);
  regularListen.update({
  incidentID: '',
  });
+ this.setState({ 
+   isSettled: false, 
+   isIncidentReady: false, 
+   incidentLocation:'',
+   pinUpdate:false, 
+   incidentID:'',
+   incidentId:'', 
+   markerResponder:null,
+   markerVolunteer:null,
+   responderLat: null, 
+   responderLng: null,
+   volunteerLat: null,
+   markerCoords: null,
+  markerLat:null,
+  markerLng:null,
+  volunteerResponding:'',
+  responderResponding:'',
+  incidentNote: '',
+  destinationPlaceId: '',
+   image_uri:'',
+   
+}); 
 
  }
 
@@ -543,14 +569,15 @@ if(!this.incidentAlertSettled){
    if (hasVolunteerAlerted=== false && isRespondingVolunteer === true && isRespondingVolunteerShown === false) {
    if(!that.volunteerAccepted){
       that.volunteerAccepted=true;
-      Alert.alert(
-   "A volunteer has accepted the incident. "
-   , `Volunteer is on the way!`,
-   [
-   { text: "Ok", onPress: () => { that.setState({ hasVolunteerAlerted:true })} },
-   ],
-   { cancelable: false }
-   );
+   //    Alert.alert(
+   // "A volunteer has accepted the incident. "
+   // , `Volunteer is on the way!`,
+   // [
+   // { text: "Ok", onPress: () => { that.setState({ hasVolunteerAlerted:true })} },
+   // ],
+   // { cancelable: false }
+   // );
+   that.setState({updateVolunteer: "A volunteer has accepted the incident."});
    }else {
       that.volunteerAccepted=false;
    }
@@ -560,14 +587,15 @@ if(!this.incidentAlertSettled){
       if(!that.volunteerReceived){
          that.volunteerReceived=true;
       
-      Alert.alert(
-         "A volunteer has arrived at the incident "
-         , ``,
-         [
-         { text: "Ok", onPress: () => { console.log("Ok") } },
-         ],
-         { cancelable: false }
-         );
+         that.setState({updateVolunteer: "A volunteer has arrived at the incident."});
+      // Alert.alert(
+      //    "A volunteer has arrived at the incident "
+      //    , ``,
+      //    [
+      //    { text: "Ok", onPress: () => { console.log("Ok") } },
+      //    ],
+      //    { cancelable: false }
+      //    );
       }else{
          that.volunteerReceived=false;
       }
@@ -730,6 +758,10 @@ if(!this.incidentAlertSettled){
       lat: coordLat,
       lng: coordLng
       },
+
+      //formultiples
+   isMultipleVolunteerDispatched:false,
+   isMultipleResponderDispatched:false,
 
    //names of responder and volunteer
    originalResponderName: '',
@@ -902,15 +934,6 @@ if(!this.incidentAlertSettled){
  <View style={styles.main}>
  <View>
  <Text style={{
- fontSize: 20,
- color: 'white',
- fontWeight: 'bold',
- textAlign: 'center',
- marginTop: 5
- }}>
- {this.state.incidentType}
- </Text>
- <Text style={{
  fontSize: 17,
  color: 'white',
  fontWeight: 'bold',
@@ -919,9 +942,30 @@ if(!this.incidentAlertSettled){
  }}>
  {this.state.updateResponder}
  </Text>
+
+ <Text style={{
+ fontSize: 17,
+ color: 'white',
+ fontWeight: 'bold',
+ textAlign: 'center',
+ marginTop: 5
+ }}>
+ {this.state.updateVolunteer}
+ </Text>
+
+ <Text style={{
+ fontSize: 15,
+ color: 'white',
+ fontWeight: 'bold',
+ textAlign: 'center',
+ marginTop: 5
+ }}>
+ {this.state.incidentType}
+ </Text>
+ 
  <Text style={{
  color: 'white',
- fontSize: 19,
+ fontSize: 14,
  textAlign: 'center',
  marginBottom: 7
  }}>
@@ -964,7 +1008,7 @@ if(!this.incidentAlertSettled){
                         Change Details
                      </Text>
                 </TouchableOpacity>
- <TouchableOpacity /*disabled={this.state.isIncidentReady}*/ onPress={this.signOutUser}>
+ <TouchableOpacity disabled={this.state.isIncidentReady} onPress={this.signOutUser}>
  <Text style={{ color: 'white', fontSize: 30 }}>
  Log Out
  </Text>
@@ -1191,7 +1235,7 @@ if(!this.incidentAlertSettled){
  </MapView>
 
  {this.state.isIncidentReady ?
- <BottomDrawer containerHeight={170} startUp={false} roundedEdges={true}>
+ <BottomDrawer containerHeight={250} startUp={false} roundedEdges={true}>
  {this.renderContent()}
  </BottomDrawer> :
  <ActionButton

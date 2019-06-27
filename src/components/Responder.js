@@ -517,6 +517,10 @@ export default class Responder extends Component {
         this.setState({
             isIncidentReady: true,
         })
+        
+        app.database().ref(`incidents/${incidentID}`).update({
+            isMultipleVolunteerDispatch:true 
+        })
 
         app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
             timeArrived: '',
@@ -525,7 +529,7 @@ export default class Responder extends Component {
             isArrivedResponderShown: false,
             isRespondingResponder:true,
             isRespondingResponderShown:false,
-            name: this.state.firstName + ' ' + this.state.lastName
+            name: this.state.firstName + ' ' + this.state.lastName,
         });
 
         app.database().ref(`mobileUsers/Responder/${userId}`).update({
@@ -932,6 +936,10 @@ export default class Responder extends Component {
                 lng: coordLng
             },
             destinationPlaceId: this.state.destinationPlaceId,
+
+            //formultiples
+   isMultipleVolunteerDispatched:false,
+   isMultipleResponderDispatched:true,
             
             //names of responder and volunteer
             originalResponderName: fullName,
@@ -1080,7 +1088,7 @@ export default class Responder extends Component {
         this.setState({pinUpdate:false, image_uri:'', destinationPlaceId: null, incidentNote: '', incidentLocation:'', markerLat: null,
         markerLng:null,});
     }
-    
+
     _toggleModal2 = () => {
         this.setState({ isFeedbackVisible: !this.state.isFeedbackVisible, didSettle:false, });
 
@@ -1207,12 +1215,12 @@ export default class Responder extends Component {
                     You are a {this.state.userType}.
                  </Text>
 
-                 <TouchableOpacity /*disabled={this.state.isIncidentReady}*/ onPress={this.routeToDetails}>
+                 <TouchableOpacity disabled={this.state.isIncidentReady} onPress={this.routeToDetails}>
                     <Text style={{ color: 'white', fontSize: 30 }}>
                         Change Details
                      </Text>
                 </TouchableOpacity>
-                <TouchableOpacity /*disabled={this.state.isIncidentReady}*/ onPress={this.signOutUser}>
+                <TouchableOpacity disabled={this.state.isIncidentReady} onPress={this.signOutUser}>
                     <Text style={{ color: 'white', fontSize: 30 }}>
                         Log Out
                      </Text>
@@ -1317,7 +1325,7 @@ export default class Responder extends Component {
             destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
              onReady={result => {
               console.log(`Distance: ${result.distance} km`)
-              this.setState({ETA:result.duration,responderDistance:result.distance})
+              this.setState({ETA:result.duration.toFixed(2),responderDistance:result.distance})
               console.log(`Duration: ${result.duration} min.`)
             }}
             apikey={apiKey}
@@ -1407,7 +1415,7 @@ export default class Responder extends Component {
 
                 {!this.state.isIncidentReady ? null :
 
-                    <ActionButton buttonColor="orange" position='left' offsetY={300} offsetX={13}
+                    <ActionButton buttonColor="orange" position='left' offsetY={400} offsetX={13}
                         renderIcon={() => (     
                         <Image 
                         style={{width:50, height:50}}
@@ -1470,7 +1478,7 @@ export default class Responder extends Component {
                 } */}
 
                 {this.state.isIncidentReady ? 
-                <BottomDrawer containerHeight={180} startUp={false} roundedEdges={true}>
+                <BottomDrawer containerHeight={250} startUp={false} roundedEdges={true}>
                         {this.renderContent()}
                     </BottomDrawer> : this.state.pinUpdate===false ?  
                     <ActionButton
