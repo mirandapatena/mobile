@@ -83,7 +83,6 @@ export default class Responder extends Component {
             originalVolunteerName:'',
             originalResponderName:'',
             isResponding: false,
-            isSettled: false,
             modalVisible:null,
             reportedBy: '',
             timeReceived: '',
@@ -400,17 +399,20 @@ export default class Responder extends Component {
         let userId = this.state.userId;
         console.log("is settled?", incidentID, userId);
 
-        this.setState({
-            isSettled: true,
-            dispatchedResponder: false,
-            originalResponder: false,
-            isRequestingResponders: false,
-            requestResponders: false,
-            isAccepted: false,
-            pinUpdate:false,
-            unresponded:false,
-            didSettle:true,
-        })
+        // this.setState({
+        //     isSettled: true,
+        //     dispatchedResponder: false,
+        //     originalResponder: false,
+        //     isRequestingResponders: false,
+        //     requestResponders: false,
+        //     isAccepted: false,
+        //     pinUpdate:false,
+        //     unresponded:false,
+        //     didSettle:true,
+        // })
+
+        this.setState({didSettle: true});
+
         var responderListen = app.database().ref(`mobileUsers/Responder/${userId}`)
         responderListen.update({
             incidentID: '',
@@ -472,7 +474,7 @@ export default class Responder extends Component {
         })
 
         app.database().ref(`incidents/${incidentId}/requestResponders/${userId}`).update({
-            name:this.state.firstName+ '' +this.state.lastName,
+            name:this.state.firstName+ ' ' +this.state.lastName,
             timeArrived: '',
             timeReceived: date,
             isArrivedResponder: false,
@@ -519,7 +521,7 @@ export default class Responder extends Component {
         })
         
         app.database().ref(`incidents/${incidentID}`).update({
-            isMultipleVolunteerDispatch:true 
+            isMultipleResponderDispatch:true 
         })
 
         app.database().ref(`incidents/${incidentID}/multipleResponders/${userId}`).update({
@@ -649,7 +651,7 @@ export default class Responder extends Component {
                        if(!this.incidentSettled){ 
                            this.incidentSettled = true;
                         Alert.alert(
-                            "INCIDENT HAS BEEN SETTLED43",
+                            "INCIDENT HAS BEEN SETTLED",
                             `Incident Type: ${incidentType}
                                                  Incident Location: ${incidentLocation}
                                                                          `
@@ -938,8 +940,8 @@ export default class Responder extends Component {
             destinationPlaceId: this.state.destinationPlaceId,
 
             //formultiples
-   isMultipleVolunteerDispatched:false,
-   isMultipleResponderDispatched:true,
+   isMultipleVolunteerDispatch:false,
+   isMultipleResponderDispatch:false,
             
             //names of responder and volunteer
             originalResponderName: fullName,
@@ -1168,7 +1170,7 @@ export default class Responder extends Component {
                             </View>
                         :null }
                 </View>
-                {this.state.responderDistance<=0.1 ?
+                {//this.state.responderDistance<=0.1 ?
                     !this.state.isArrived ? (
                          this.state.requestResponders === true ?
                             <View style={styles.buttonContainer}>
@@ -1197,7 +1199,7 @@ export default class Responder extends Component {
                                 onPress={this.isSettled}>
                                     Incident is settled!
                                     </AwesomeButton>
-                                </View>:null
+                                </View>//:null
                             }      
                 
             </View>
@@ -1215,12 +1217,12 @@ export default class Responder extends Component {
                     You are a {this.state.userType}.
                  </Text>
 
-                 <TouchableOpacity disabled={this.state.isIncidentReady} onPress={this.routeToDetails}>
+                 <TouchableOpacity /*disabled={this.state.isIncidentReady}*/ onPress={this.routeToDetails}>
                     <Text style={{ color: 'white', fontSize: 30 }}>
                         Change Details
                      </Text>
                 </TouchableOpacity>
-                <TouchableOpacity disabled={this.state.isIncidentReady} onPress={this.signOutUser}>
+                <TouchableOpacity /*disabled={this.state.isIncidentReady}*/ onPress={this.signOutUser}>
                     <Text style={{ color: 'white', fontSize: 30 }}>
                         Log Out
                      </Text>
@@ -1415,7 +1417,7 @@ export default class Responder extends Component {
 
                 {!this.state.isIncidentReady ? null :
 
-                    <ActionButton buttonColor="orange" position='left' offsetY={400} offsetX={13}
+                    <ActionButton buttonColor="orange" position='left' offsetY={300} offsetX={13}
                         renderIcon={() => (     
                         <Image 
                         style={{width:50, height:50}}
@@ -1478,7 +1480,7 @@ export default class Responder extends Component {
                 } */}
 
                 {this.state.isIncidentReady ? 
-                <BottomDrawer containerHeight={250} startUp={false} roundedEdges={true}>
+                <BottomDrawer containerHeight={180} startUp={false} roundedEdges={true}>
                         {this.renderContent()}
                     </BottomDrawer> : this.state.pinUpdate===false ?  
                     <ActionButton

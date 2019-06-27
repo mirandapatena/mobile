@@ -3325,15 +3325,18 @@ public final class R {
     public static final int src_images_alert=0x7f06007c;
     public static final int src_images_avatar=0x7f06007d;
     public static final int src_images_cancel=0x7f06007e;
-    public static final int src_images_loading_screen=0x7f06007f;
-    public static final int src_images_logo=0x7f060080;
-    public static final int src_images_menu=0x7f060081;
-    public static final int src_images_sendreport=0x7f060082;
-    public static final int src_images_tracking_responder=0x7f060083;
-    public static final int src_images_tracking_volunteer=0x7f060084;
-    public static final int src_images_userposition=0x7f060085;
-    public static final int tooltip_frame_dark=0x7f060086;
-    public static final int tooltip_frame_light=0x7f060087;
+    public static final int src_images_justice=0x7f06007f;
+    public static final int src_images_loading_screen=0x7f060080;
+    public static final int src_images_logo=0x7f060081;
+    public static final int src_images_menu=0x7f060082;
+    public static final int src_images_police=0x7f060083;
+    public static final int src_images_sendreport=0x7f060084;
+    public static final int src_images_tracking_responder=0x7f060085;
+    public static final int src_images_tracking_volunteer=0x7f060086;
+    public static final int src_images_userposition=0x7f060087;
+    public static final int src_images_volunteer=0x7f060088;
+    public static final int tooltip_frame_dark=0x7f060089;
+    public static final int tooltip_frame_light=0x7f06008a;
   }
   public static final class id {
     public static final int ALT=0x7f070000;

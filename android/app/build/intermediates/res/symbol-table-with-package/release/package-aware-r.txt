@@ -690,13 +690,16 @@ drawable redbox_top_border_background
 drawable src_images_alert
 drawable src_images_avatar
 drawable src_images_cancel
+drawable src_images_justice
 drawable src_images_loading_screen
 drawable src_images_logo
 drawable src_images_menu
+drawable src_images_police
 drawable src_images_sendreport
 drawable src_images_tracking_responder
 drawable src_images_tracking_volunteer
 drawable src_images_userposition
+drawable src_images_volunteer
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT

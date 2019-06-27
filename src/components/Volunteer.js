@@ -702,7 +702,7 @@ export default class Volunteer extends Component {
                 </View>
 
                 <View style={{flexDirection:"row"}}>
-                    {this.state.responderDistance <= 0.1 ?(
+                    {this.state.responderDistance <= 0.025 ?(
                         this.state.requestVolunteers === true ?
     <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => { this.arrivedLocationRequested() }}>I have arrived! (Requested)</AwesomeButton></View>
     :
@@ -710,7 +710,6 @@ export default class Volunteer extends Component {
         <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => { this.arrivedLocation() }}>I have arrived! </AwesomeButton></View>
         :
         <View style={styles.buttonContainer}><AwesomeButton height={50} width={190} backgroundColor="#467541" onPress={() => this.arrivedLocationDispatched()}>I have arrived! (Dispatched) </AwesomeButton></View>
-
 
                     ): null}
                     
