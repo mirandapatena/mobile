@@ -344,7 +344,6 @@ export default class RegularUser extends Component {
 //  }
 
  if (reportedBy === userId && isSettled === false) {
-   that.setState({updateResponder: "A responder has arrived at the incident."});
 
  that.incidentResponderListener(incidentID);
  that.incidentVolunteerListener(incidentID);
@@ -353,7 +352,7 @@ export default class RegularUser extends Component {
 
 
  }
- else if (reportedBy === userId && isSettled === true && isShown === false) {
+ else if (reportedBy === userId && isSettled === true && isShown === true) {
  that.incidentSettled();
 
  }
@@ -375,39 +374,31 @@ export default class RegularUser extends Component {
     incidentId: '',
     });
 
-   //  this.setState({ 
-   //     isSettled: false, 
-   //     isIncidentReady: false, 
-   //     incidentLocation:'',
-   //     pinUpdate:false, 
-   //     incidentID:'',
-   //     incidentId:'', 
-   //     markerResponder:null,
-   //     markerVolunteer:null,
-   //     responderLat: null, 
-   //     responderLng: null,
-   //     volunteerLat: null,
-   //     markerCoords: null,
-   //    markerLat:null,
-   //    markerLng:null,
-   //    volunteerResponding:'',
-   //    responderResponding:'',
-   //    incidentNote: '',
-   //    destinationPlaceId: '',
-   //     image_uri:'',
-   //     responderRespondingID:'',
-   //     volunteerRespondingID:'',
-   //     responderETA:'',
-   //     volunteerETA:'',
-   //     updateResponder:'',
-   //     updateVolunteer:''
+    this.setState({ 
+       isSettled: false, 
+       isIncidentReady: false, 
+       incidentLocation:'',
+       pinUpdate:false, 
+       incidentID:'',
+       incidentId:'', 
+       responderLat: null, 
+       responderLng: null,
+       volunteerLat: null,
+       markerCoords: null,
+      markerLat:null,
+      markerLng:null,
+      volunteerResponding:'',
+      responderResponding:'',
+      incidentNote: '',
+      destinationPlaceId: '',
+       image_uri:'',
        
-   // }); 
+   }); 
 
  }
 
  incidentSettled = () => {
-   if(!this.incidentAlertSettled){
+if(!this.incidentAlertSettled){
    this.incidentAlertSettled= true;
  Alert.alert(
  "INCIDENT HAS BEEN RESPONDED!! ",
@@ -417,37 +408,15 @@ export default class RegularUser extends Component {
  { text: "Ok", onPress: () => { this.clearSettled() } },
  ],
  { cancelable: false }
- );}else{
-    this.incidentAlertSettled=false;
- }
-
+ );
+}else{
+   this.incidentAlertSettled=false;
+}
 
  var regularListen = app.database().ref(`mobileUsers/Regular User/${this.state.userId}`);
  regularListen.update({
  incidentID: '',
  });
- this.setState({ 
-   isSettled: false, 
-   isIncidentReady: false, 
-   incidentLocation:'',
-   pinUpdate:false, 
-   incidentID:'',
-   incidentId:'', 
-   markerResponder:null,
-   markerVolunteer:null,
-   responderLat: null, 
-   responderLng: null,
-   volunteerLat: null,
-   markerCoords: null,
-  markerLat:null,
-  markerLng:null,
-  volunteerResponding:'',
-  responderResponding:'',
-  incidentNote: '',
-  destinationPlaceId: '',
-   image_uri:'',
-   
-}); 
 
  }
 
@@ -466,7 +435,6 @@ export default class RegularUser extends Component {
  var isRespondingResponder;
  var hasResponderAlerted = this.state.hasResponderAlerted;
  var isRespondingResponderShown;
- var responderETA = ''
 
  this.responderListen.on('value', function (snapshot) {
  const data2 = snapshot.val() || null;
@@ -481,16 +449,12 @@ export default class RegularUser extends Component {
  isArrivedResponder = data2.isArrivedResponder;
  isArrivedResponderShown = data2.isArrivedResponderShown;
  timeResponderArrived = data2.timeResponderArrived;
- responderETA = data2.responderETA;
-
- that.setState({responderETA:responderETA})
  
  // var destinationPlaceId = data2.destinationPlaceId;
  if (responderRespondingID) {
  if (hasResponderAlerted===false&&isRespondingResponder === true && isRespondingResponderShown ===false) {
    if(!this.responderAccepted){ 
       that.setState({updateResponder: "A responder has accepted the incident."});
-      
       this.responderAccepted = true;
    // Alert.alert(
    // "A Responder has accepted an incident "
@@ -521,7 +485,7 @@ export default class RegularUser extends Component {
    //    ],
    //    { cancelable: false }
    //    );
-
+   that.setState({updateResponder: "A responder has arrived at the incident."});
    }else{
       this.responderArrived = false;
    }
@@ -560,7 +524,6 @@ export default class RegularUser extends Component {
  let isArrivedVolunteer ='';
  let isArrivedVolunteerShown = '';
  let timeVolunteerArrived = '';
- let volunteerETA = '';
 
  let hasVolunteerAlerted = this.state.hasVolunteerAlerted;
  this.volunteerListen.on('value', function (snapshot) {
@@ -576,23 +539,11 @@ export default class RegularUser extends Component {
 
  var isRespondingVolunteerShown = data2.isRespondingVolunteerShown;
 
-volunteerETA = data2.volunteerETA;
-
- that.setState({volunteerETA:volunteerETA});
-
  if (volunteerRespondingID) {
    if (hasVolunteerAlerted=== false && isRespondingVolunteer === true && isRespondingVolunteerShown === false) {
    if(!that.volunteerAccepted){
       that.volunteerAccepted=true;
-   //    Alert.alert(
-   // "A volunteer has accepted the incident. "
-   // , `Volunteer is on the way!`,
-   // [
-   // { text: "Ok", onPress: () => { that.setState({ hasVolunteerAlerted:true })} },
-   // ],
-   // { cancelable: false }
-   // );
-   that.setState({updateVolunteer: "A volunteer has accepted the incident."});
+      that.setState({updateVolunteer: "A volunteer has accepted the incident."});
    }else {
       that.volunteerAccepted=false;
    }
@@ -603,14 +554,6 @@ volunteerETA = data2.volunteerETA;
          that.volunteerReceived=true;
       
          that.setState({updateVolunteer: "A volunteer has arrived at the incident."});
-      // Alert.alert(
-      //    "A volunteer has arrived at the incident "
-      //    , ``,
-      //    [
-      //    { text: "Ok", onPress: () => { console.log("Ok") } },
-      //    ],
-      //    { cancelable: false }
-      //    );
       }else{
          that.volunteerReceived=false;
       }
@@ -774,14 +717,11 @@ volunteerETA = data2.volunteerETA;
       lng: coordLng
       },
 
-      //formultiples
-   isMultipleVolunteerDispatch:false,
-   isMultipleResponderDispatch:false,
-
    //names of responder and volunteer
    originalResponderName: '',
    originalVolunteerName:'',
-
+   isMultipleResponderDispatch: false,
+   isMultipleVolunteerDispatch:false,
    multipleResponders:'', // array for multiple initial responders
    multipleVolunteers:'',
    requestVolunteers:'', // array for additional volunteers
@@ -830,7 +770,6 @@ volunteerETA = data2.volunteerETA;
  }).then((snap) => {
  const incidentUserKey = snap.key;
  this.setState({ incidentUserKey });
- this.setState({incidentID:incidentUserKey})
  console.log("INCIDENT USER KEY HEREEEEE: ", this.state.userId);
  })
  this.setState({
@@ -950,6 +889,15 @@ volunteerETA = data2.volunteerETA;
  <View style={styles.main}>
  <View>
  <Text style={{
+ fontSize: 20,
+ color: 'white',
+ fontWeight: 'bold',
+ textAlign: 'center',
+ marginTop: 5
+ }}>
+ {this.state.incidentType}
+ </Text>
+ <Text style={{
  fontSize: 17,
  color: 'white',
  fontWeight: 'bold',
@@ -959,39 +907,12 @@ volunteerETA = data2.volunteerETA;
  {this.state.updateResponder}
  </Text>
 
- <Text style={{
-      fontSize: 10,
-      color: 'white',
-      fontWeight: 'bold',
-      textAlign: 'center',
-      marginTop: 5
-      }}>
-      Responder ETA: {this.state.ETA} minutes
-      </Text> 
+ <Text style={{ textAlign: 'center', fontSize: 10, color : '#ffffff'}}>Responder ETA: {this.state.ETA} minutes</Text>
+
 
  <Text style={{
- fontSize: 17,
  color: 'white',
- fontWeight: 'bold',
- textAlign: 'center',
- marginTop: 5
- }}>
- {this.state.updateVolunteer}
- </Text>
-
- <Text style={{
- fontSize: 15,
- color: 'white',
- fontWeight: 'bold',
- textAlign: 'center',
- marginTop: 5
- }}>
- {this.state.incidentType}
- </Text>
- 
- <Text style={{
- color: 'white',
- fontSize: 14,
+ fontSize: 19,
  textAlign: 'center',
  marginBottom: 7
  }}>
@@ -1034,7 +955,7 @@ volunteerETA = data2.volunteerETA;
                         Change Details
                      </Text>
                 </TouchableOpacity>
- <TouchableOpacity disabled={this.state.isIncidentReady} onPress={this.signOutUser}>
+ <TouchableOpacity /*disabled={this.state.isIncidentReady}*/ onPress={this.signOutUser}>
  <Text style={{ color: 'white', fontSize: 30 }}>
  Log Out
  </Text>
@@ -1154,9 +1075,27 @@ volunteerETA = data2.volunteerETA;
  </Marker>
  );
  }
- var responderPolyline=null
  var markerResponder = null;
+
+ var polylineResponder = null
  if (this.state.responderLat) {
+
+
+   polylineResponder = (
+       <MapViewDirections
+       origin={{latitude: this.state.latitude, longitude: this.state.longitude}}
+       destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
+        onReady={result => {
+         console.log(`Distance: ${result.distance} km`)
+         this.setState({ETA:result.duration,responderDistance:result.distance})
+         console.log(`Duration: ${result.duration} min.`)
+       }}
+       apikey={apiKey}
+       strokeWidth={3}
+       strokeColor="hotpink"
+     />
+   )
+
  markerResponder = (
  <Marker
  coordinate={{
@@ -1171,23 +1110,6 @@ volunteerETA = data2.volunteerETA;
  style={{ height: 45, width: 45 }} />
  </Marker>
  );
-
- responderPolyline=(
-   
-      <MapViewDirections
-      origin={{latitude: this.state.responderLat, longitude: this.state.responderLng}}
-      destination={{latitude: this.state.markerLat, longitude: this.state.markerLng}}
-       onReady={result => {
-        console.log(`Distance: ${result.distance} km`)
-        this.setState({ETA:result.duration.toFixed(2),responderDistance:result.distance})
-        console.log(`Duration: ${result.duration} min.`)
-      }}
-      apikey={apiKey}
-      strokeWidth={3}
-      strokeColor="hotpink"
-    />
-  
- )
  }
 
  var markerVolunteer = null;
@@ -1274,13 +1196,13 @@ volunteerETA = data2.volunteerETA;
  }
  {this.state.isSettled === true ? null : marker}
  {this.state.isSettled === true ? null : markerResponder}
- {this.state.isSettled === true ? null : responderPolyline}
+ {this.state.isSettled === true ? null : polylineResponder}
  {this.state.isSettled === true ? null : markerVolunteer}
 
  </MapView>
 
  {this.state.isIncidentReady ?
- <BottomDrawer containerHeight={250} startUp={false} roundedEdges={true}>
+ <BottomDrawer containerHeight={170} startUp={false} roundedEdges={true}>
  {this.renderContent()}
  </BottomDrawer> :
  <ActionButton

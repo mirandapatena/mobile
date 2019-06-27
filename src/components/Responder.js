@@ -1170,7 +1170,7 @@ export default class Responder extends Component {
                             </View>
                         :null }
                 </View>
-                {//this.state.responderDistance<=0.1 ?
+                {this.state.responderDistance<=0.25 ?
                     !this.state.isArrived ? (
                          this.state.requestResponders === true ?
                             <View style={styles.buttonContainer}>
@@ -1199,7 +1199,7 @@ export default class Responder extends Component {
                                 onPress={this.isSettled}>
                                     Incident is settled!
                                     </AwesomeButton>
-                                </View>//:null
+                                </View>:null
                             }      
                 
             </View>
